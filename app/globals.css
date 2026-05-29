@@ -1,0 +1,142 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand colors */
+  --primary: #8B5CF6;
+  --primary-light: #EDE9FE;
+  --primary-dark: #6D28D9;
+  --pink: #EC4899;
+  --pink-light: #FCE7F3;
+  --rose: #F43F5E;
+
+  /* Surface / neutral */
+  --background: #FAFAF8;
+  --surface: #FFFFFF;
+  --border: #E8E4F0;
+
+  /* Text */
+  --text: #1A1523;
+  --text-2: #6B6780;
+  --text-3: #9D9AB0;
+
+  /* Radius */
+  --radius: 0.75rem;
+  --radius-lg: 1.25rem;
+
+  /* Shadcn compat */
+  --card: #FFFFFF;
+  --card-foreground: #1A1523;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1523;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #1A1523;
+  --muted: #F1F5F9;
+  --muted-foreground: #6B6780;
+  --accent: #EDE9FE;
+  --accent-foreground: #6D28D9;
+  --destructive: #F43F5E;
+  --destructive-foreground: #FFFFFF;
+  --input: #E8E4F0;
+  --ring: #8B5CF6;
+  --foreground: #1A1523;
+}
+
+@theme inline {
+  --font-sans: var(--font-noto), 'Noto Sans KR', sans-serif;
+  --font-serif: var(--font-playfair), 'Playfair Display', serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius-lg);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Subject color classes */
+.subj-국어   { background: #FEE2E2; color: #991B1B; }
+.subj-수학   { background: #DBEAFE; color: #1E40AF; }
+.subj-영어   { background: #D1FAE5; color: #065F46; }
+.subj-과학   { background: #FEF3C7; color: #92400E; }
+.subj-사회   { background: #EDE9FE; color: #5B21B6; }
+.subj-역사   { background: #FCE7F3; color: #9D174D; }
+.subj-음악   { background: #ECFDF5; color: #064E3B; }
+.subj-체육   { background: #FFF7ED; color: #9A3412; }
+.subj-미술   { background: #F0FDFA; color: #134E4A; }
+.subj-동아리 { background: #F5F3FF; color: #4C1D95; }
+.subj-세특   { background: #FDF2F8; color: #831843; }
+.subj-행사   { background: #FFFBEB; color: #78350F; }
+.subj-기타   { background: #F1F5F9; color: #334155; }
+.subj-자율   { background: #E0F2FE; color: #0C4A6E; }
+.subj-진로   { background: #F0FDF4; color: #14532D; }
+.subj-봉사   { background: #FFF1F2; color: #881337; }
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+.animate-spotlight {
+  animation: spotlight 2s ease 0.75s 1 forwards;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-bottom-color: #8b5cf6;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
